@@ -13,6 +13,11 @@ import com.saledo.wallet.exception.UnsupportedNumberFormatException;
 
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * Override of Jacskon deserializer for BigDecimal format. Number can be entered as a
+ * string and every entry will be rounded on two decimal places. In case of error custom
+ * UnsupportedNumberFormatException will be thrown.
+ */
 @Log4j2
 @JsonComponent
 public class BigDecimalDeserializer extends JsonDeserializer<BigDecimal> {

@@ -15,6 +15,9 @@ import com.saledo.wallet.entity.Wallet;
 import com.saledo.wallet.repository.TransactionRepository;
 import com.saledo.wallet.repository.WalletRepository;
 
+/**
+ * Populating DB data for testing purposes on application startup.
+ */
 @Component
 public class DataLoader implements ApplicationRunner {
 	private WalletRepository walletRepository;

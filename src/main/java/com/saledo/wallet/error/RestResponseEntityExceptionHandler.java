@@ -19,6 +19,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.saledo.wallet.dto.error.ExceptionResponseDto;
 import com.saledo.wallet.dto.error.FieldValidationErrorDto;
 
+/**
+ * Custom exception handler. Implemented to be able to use a custom response DTO object in
+ * case of error, mostly in case of unsupported formats sent in the request (validation
+ * error). Default error response object contains to much information that we don't need.
+ */
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 

@@ -18,6 +18,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Common fields for DB entities.
+ */
 @NoArgsConstructor
 @Getter
 @Setter

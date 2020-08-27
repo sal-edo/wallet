@@ -13,6 +13,10 @@ public class WalletApplication {
 		SpringApplication.run(WalletApplication.class, args);
 	}
 
+	/**
+	 * Instance which is used for mapping Entity to DTO object and vice versa.
+	 * @return
+	 */
 	@Bean
 	public ModelMapper modelMapper() {
 		return new ModelMapper();

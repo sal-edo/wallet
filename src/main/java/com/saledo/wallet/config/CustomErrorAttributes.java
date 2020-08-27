@@ -24,6 +24,12 @@ import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
+/**
+ * Override of Spring DefaultErrorAttributes component which is returned in case of
+ * error response. Timestamp is converted to Instant and cause of error is set inside
+ * "cause" field instead of "message" so that error response is same in all cases and it
+ * follows ExceptionResponseDto format.
+ */
 @Component
 public class CustomErrorAttributes extends DefaultErrorAttributes {
 
@@ -32,7 +38,8 @@ public class CustomErrorAttributes extends DefaultErrorAttributes {
 			ErrorAttributeOptions errorAttributeOptions) {
 		Map<String, Object> errorAttributes = super.getErrorAttributes(webRequest,
 				errorAttributeOptions);
-		errorAttributes.put("timestamp", ((Date) errorAttributes.get("timestamp")).toInstant());
+		errorAttributes.put("timestamp",
+				((Date) errorAttributes.get("timestamp")).toInstant());
 		errorAttributes.put("cause", errorAttributes.get("message"));
 		errorAttributes.remove("message");
 		errorAttributes.put("status", String.valueOf(errorAttributes.get("status")));

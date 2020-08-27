@@ -6,6 +6,9 @@ import java.util.List;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Custom error response DTO.
+ */
 @Data
 @Builder
 public class ExceptionResponseDto {
